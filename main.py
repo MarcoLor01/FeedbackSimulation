@@ -1,4 +1,4 @@
-# -------------------------------------------------------------------------
+# # -------------------------------------------------------------------------
 #  * This program is a next-event simulation of a single-server FIFO service
 #  * node using Exponentially distributed interarrival times and Uniformly
 #  * distributed service times (i.e., an M/U/1 queue).  The service node is
@@ -159,9 +159,9 @@ def Simulation():
             if index % step_size == 0 and index < max_simulation and index != 0:
                 SaveData(index)
             # EndWhile
-    print("   average interarrival time = {0:6.2f}".format(t.last / index))
+    print("   average interarrival time = {0:6.2f}".format(t.last / (index-job_feedback)))
     print("   average wait ............ = {0:6.2f}".format(area.node / (index-job_feedback)))
-    print("   average delay ........... = {0:6.2f}".format(area.queue / index))
+    print("   average delay ........... = {0:6.2f}".format(area.queue / (index-job_feedback)))
     print("   average service time .... = {0:6.2f}".format(area.service / (index-job_feedback)))
     print("   average # in the node ... = {0:6.2f}".format(area.node / t.current))
     print("   average # in the queue .. = {0:6.2f}".format(area.queue / t.current))
